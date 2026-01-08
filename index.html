@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sithmal Nonis | Civil Engineer Portfolio</title>
-    <link rel="icon" type="image/png" href="image_c6f1fc.png">
+    <meta name="description" content="Sithmal Nonis - Civil Engineer specializing in Digital Engineering. 3+ years experience.">
+    <title>Sithmal Nonis | Civil Engineer & Digital Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
-        .skill-card { background: white; padding: 12px 16px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; }
-        .skill-card:hover { border-color: #2563eb; transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
-        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: center; justify-content: center; }
-        .modal-content { background: white; padding: 2rem; border-radius: 1rem; text-align: center; max-width: 400px; width: 90%; }
-        .item-card { background: #f8fafc; border-left: 4px solid #2563eb; padding: 1rem; border-radius: 0.5rem; transition: 0.3s; }
-        .item-card:hover { background: #f1f5f9; }
+        
+        /* Timeline Styles */
+        .timeline-line { position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
+        @media (min-width: 768px) { .timeline-line { left: 50%; } }
+        
+        /* Skill Bar Animation */
+        .skill-progress { height: 100%; background: linear-gradient(90deg, #2563eb, #f59e0b); border-radius: 10px; transition: width 1.5s ease-in-out; }
+        
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
+        
+        /* Floating Animation for Hero */
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .hero-float { animation: float 4s ease-in-out infinite; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
     <div id="success-modal" class="modal-overlay">
-        <div class="modal-content shadow-2xl">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm w-full mx-4">
             <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
-            <h3 id="success-message-title" class="text-xl font-bold text-slate-900">Thank You!</h3>
-            <p class="text-slate-600 mt-2">Successfully sent the message. I will get back to you soon.</p>
-            <button onclick="closeModal()" class="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg font-bold">Close</button>
+            <h3 id="modal-title" class="text-xl font-bold">Message Sent!</h3>
+            <p class="text-slate-600 mt-2">Thank you for reaching out. I'll get back to you soon.</p>
+            <button onclick="closeModal()" class="mt-6 w-full py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition">Close</button>
         </div>
     </div>
 
@@ -36,254 +44,334 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold tracking-tighter text-blue-900 uppercase">Sithmal <span class="text-blue-600">Nonis</span></a>
             
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#home" class="text-sm font-semibold hover:text-blue-600 transition">Home</a>
+            <div class="hidden md:flex space-x-6 items-center">
                 <a href="#about" class="text-sm font-semibold hover:text-blue-600 transition">About</a>
+                <a href="#education" class="text-sm font-semibold hover:text-blue-600 transition">Education</a>
                 <a href="#experience" class="text-sm font-semibold hover:text-blue-600 transition">Experience</a>
-                <a href="#certifications" class="text-sm font-semibold hover:text-blue-600 transition">Certifications</a>
+                <a href="#projects" class="text-sm font-semibold hover:text-blue-600 transition">Projects</a>
                 <a href="#skills" class="text-sm font-semibold hover:text-blue-600 transition">Skills</a>
-                <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Contact</a>
+                <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Hire Me</a>
             </div>
             
             <button id="mobileBtn" class="md:hidden text-slate-800"><i class="fa-solid fa-bars text-2xl"></i></button>
         </div>
 
-        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 flex flex-col p-6 space-y-4 shadow-xl">
-            <a href="#home" class="font-semibold hover:text-blue-600">Home</a>
-            <a href="#about" class="font-semibold hover:text-blue-600">About</a>
-            <a href="#experience" class="font-semibold hover:text-blue-600">Experience</a>
-            <a href="#certifications" class="font-semibold hover:text-blue-600">Certifications</a>
-            <a href="#skills" class="font-semibold hover:text-blue-600">Skills</a>
-            <a href="#contact" class="font-semibold hover:text-blue-600">Contact</a>
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 p-6 flex flex-col space-y-4 shadow-xl">
+            <a href="#about" class="font-semibold" onclick="toggleMenu()">About</a>
+            <a href="#education" class="font-semibold" onclick="toggleMenu()">Education</a>
+            <a href="#experience" class="font-semibold" onclick="toggleMenu()">Experience</a>
+            <a href="#projects" class="font-semibold" onclick="toggleMenu()">Projects</a>
+            <a href="#skills" class="font-semibold" onclick="toggleMenu()">Skills</a>
+            <a href="#contact" class="font-semibold text-blue-600" onclick="toggleMenu()">Contact</a>
         </div>
     </nav>
 
-    <section id="home" class="pt-32 pb-20 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6">
-            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded text-xs font-bold uppercase tracking-widest border border-blue-200">MSc Student @ Leoben, Austria</div>
-            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight">Civil Engineer & <span class="text-blue-600">Digital Specialist</span></h1>
-            <p class="text-lg text-slate-600 leading-relaxed max-w-lg">
-                Civil Engineer with 3+ years of experience. Currently specializing in Digital Civil Engineering Science at Montanuniversität Leoben, Austria.
-            </p>
-            <div class="flex flex-wrap gap-4 pt-4">
-                <a href="Sithmal_Nonis_CV.pdf" download class="flex items-center px-6 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition shadow-md">
-                    <i class="fa-solid fa-file-pdf mr-2"></i> Download CV
-                </a>
-                <a href="https://wa.me/4368120131926" target="_blank" class="flex items-center px-6 py-3 border-2 border-green-500 text-green-600 rounded-xl font-bold hover:bg-green-50 transition">
-                    <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp
-                </a>
+    <section id="home" class="min-h-screen pt-32 pb-20 px-6 flex items-center bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 text-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">Bridging Construction with <span class="text-blue-400">Digital Innovation</span></h1>
+                <p class="text-xl text-slate-300">MSc Student in Digital Civil Engineering Science @ Montanuniversität Leoben, Austria.</p>
+                <p class="text-slate-400 max-w-lg">Civil Engineer with 3+ years of experience now specializing in BIM, data-driven engineering, and digital transformation.</p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact" class="px-8 py-3 bg-blue-600 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">Get In Touch</a>
+                    <a href="Sithmal_Nonis_CV.pdf" download class="px-8 py-3 border-2 border-white rounded-xl font-bold hover:bg-white hover:text-blue-900 transition">Download CV</a>
+                    <a href="https://wa.me/4368120131926" target="_blank" class="flex items-center px-6 py-3 border-2 border-green-500 text-green-400 rounded-xl font-bold hover:bg-green-500 hover:text-white transition">
+                        <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="flex justify-center">
-            <img src="IMG-20230422-WA00281.jpg" alt="Sithmal Nonis" class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-2xl border-4 border-white">
+            <div class="flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <img src="IMG-20230422-WA00281.jpg" alt="Sithmal Nonis" class="hero-float relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-3xl border-4 border-white/10 shadow-2xl shadow-blue-500/20">
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6 text-blue-900">About Me</h2>
-            <p class="text-lg text-slate-600 leading-relaxed">
-                I am a Civil Engineer passionate about the intersection of physical infrastructure and digital intelligence. With a solid foundation in site management and project planning from my career in Sri Lanka, I am currently expanding my expertise in BIM, data-driven engineering, and digital workflows in Austria. I strive to deliver precision in every project, whether on-site or in a digital environment.
-            </p>
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-900">About Me</h2>
+                <div class="h-1 w-20 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
+                    <p>I'm a Civil Engineer who understands both the dust of the construction site and the precision of digital modeling. My journey began in Sri Lanka, where I spent over three years managing construction projects and coordinating multidisciplinary teams.</p>
+                    <p>What excites me most is the transformation happening in our industry. Traditional construction methods are merging with **Building Information Modeling (BIM)**, data analytics, and digital twins.</p>
+                    <p>I am currently seeking part-time opportunities in Austria where I can apply my unique combination of site management experience and digital engineering knowledge.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="p-6 bg-slate-50 rounded-2xl text-center border border-slate-100 shadow-sm">
+                        <div class="text-4xl font-bold text-blue-600">3+</div>
+                        <div class="text-slate-500 text-sm font-semibold mt-2 uppercase">Years Experience</div>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl text-center border border-slate-100 shadow-sm">
+                        <div class="text-4xl font-bold text-blue-600">15+</div>
+                        <div class="text-slate-500 text-sm font-semibold mt-2 uppercase">Projects Completed</div>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl text-center border border-slate-100 shadow-sm">
+                        <div class="text-4xl font-bold text-blue-600">6+</div>
+                        <div class="text-slate-500 text-sm font-semibold mt-2 uppercase">Certifications</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="experience" class="py-20 px-6 max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-16">Engineering Career</h2>
-        <div class="space-y-12">
-            <div class="border-l-4 border-blue-600 pl-6 space-y-12">
-                <div>
-                    <h3 class="text-xl font-bold text-slate-900">Site Engineer — Nethu Builders</h3>
-                    <p class="text-blue-600 text-sm font-semibold italic">Jun 2024 — Oct 2025 | Sri Lanka</p>
-                    <p class="text-slate-600 mt-2">Managing daily construction operations, labor, and subcontractors. Producing as-built drawings and analytical reporting.</p>
+    <section id="education" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Education</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <i class="fa-solid fa-graduation-cap text-4xl text-blue-600 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-2">MSc in Digital Civil Engineering Science</h3>
+                    <p class="text-blue-600 font-semibold text-sm mb-4">Montanuniversität Leoben | 2025 – 2027</p>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li>• BIM & Digital Twins</li>
+                        <li>• Data Analytics in Construction</li>
+                        <li>• Automation in Building</li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-900">Site Engineer — Steps Construction (Pvt) Ltd</h3>
-                    <p class="text-blue-600 text-sm font-semibold italic">Aug 2023 — May 2024 | Sri Lanka</p>
-                    <p class="text-slate-600 mt-2">Developed project Gantt charts and coordinated multi-disciplinary teams including architects and engineers.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <i class="fa-solid fa-university text-4xl text-blue-600 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-2">BSc (Honours) in Civil Engineering</h3>
+                    <p class="text-blue-600 font-semibold text-sm mb-4">SLTC, Sri Lanka | Graduated 2024</p>
+                    <p class="text-slate-600 text-sm">Focused on structural design, construction management, and site supervision.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <i class="fa-solid fa-laptop-code text-4xl text-blue-600 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-2">Diploma in IT (DiTec)</h3>
+                    <p class="text-blue-600 font-semibold text-sm mb-4">ESOFT, Negombo | 2021</p>
+                    <p class="text-slate-600 text-sm">Foundational IT knowledge in programming and digital systems.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative">
+            <h2 class="text-3xl font-bold text-center mb-16">Professional Journey</h2>
+            <div class="timeline-line"></div>
             
-            <h3 class="text-2xl font-bold pt-12 border-t border-slate-200 text-slate-400 uppercase tracking-widest text-sm text-center">Trainee & Internship Experiences</h3>
-            <div class="border-l-4 border-slate-300 pl-6 space-y-12">
-                <div>
-                    <h3 class="text-xl font-bold text-slate-800">Trainee Civil Engineer — Airport & Aviation Services</h3>
-                    <p class="text-slate-500 text-sm font-semibold italic">Feb 2023 — Aug 2023 | Sri Lanka</p>
-                    <p class="text-slate-600 mt-2">Performed technical evaluations of contractor bids, conducted site measurements, and verified monthly progress bills.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-800">Trainee Civil Engineer — Archiform Design Consultants</h3>
-                    <p class="text-slate-500 text-sm font-semibold italic">Feb 2022 — Oct 2022 | Sri Lanka</p>
-                    <p class="text-slate-600 mt-2">Oversaw construction activities, enforced safety protocols, and coordinated between technical teams to ensure timeline compliance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="py-20 bg-slate-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Professional Certifications</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="item-card"><p class="font-bold">Project Planning with Primavera P6</p><p class="text-xs text-slate-500">Pro Consultancy (2025)</p></div>
-                <div class="item-card"><p class="font-bold">Contracts Management</p><p class="text-xs text-slate-500">Udemy (2021)</p></div>
-                <div class="item-card"><p class="font-bold">GIS Software Technology</p><p class="text-xs text-slate-500">SuperMap (2020)</p></div>
-                <div class="item-card"><p class="font-bold">AutoCAD Workshop</p><p class="text-xs text-slate-500">SLTC (2021)</p></div>
-                <div class="item-card"><p class="font-bold">Digital Marketing</p><p class="text-xs text-slate-500">Google (2020)</p></div>
-                <div class="item-card"><p class="font-bold">Frontend Fundamentals</p><p class="text-xs text-slate-500">PIRPLE (2020)</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16 text-slate-900">Expertise & Technical Stack</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h4 class="font-bold text-blue-700 mb-4 flex items-center"><i class="fa-solid fa-compass-drafting mr-2"></i> Civil Engineering Skills</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="skill-card">AutoCAD</div>
-                        <div class="skill-card">Revit</div>
-                        <div class="skill-card">Primavera P6</div>
-                        <div class="skill-card">SAP2000</div>
-                        <div class="skill-card">MATLAB</div>
-                        <div class="skill-card">Project Management</div>
-                        <div class="skill-card">Microsoft Project</div>
-                        <div class="skill-card">Time Management</div>
+            <div class="space-y-12">
+                <div class="relative pl-12 md:pl-0 md:flex md:justify-between items-center w-full">
+                    <div class="hidden md:block w-5/12 text-right pr-12 text-slate-500 font-bold">Jun 2024 – Oct 2024</div>
+                    <div class="absolute left-[11px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-blue-600 rounded-full border-4 border-white z-10"></div>
+                    <div class="md:w-5/12 bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm">
+                        <span class="md:hidden block text-blue-600 font-bold mb-2 text-sm">Jun 2024 – Oct 2024</span>
+                        <h3 class="font-bold text-lg">Site Engineer</h3>
+                        <p class="text-blue-600 text-sm mb-3">Nethu Builders, Sri Lanka</p>
+                        <p class="text-slate-600 text-sm">Managed 3 residential projects, reduced material waste by 15%, and achieved 95% on-time delivery.</p>
                     </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-slate-700 mb-4 flex items-center"><i class="fa-solid fa-laptop mr-2"></i> Technical & Professional Skills</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="skill-card">Microsoft Office 365</div>
-                        <div class="skill-card">Google Workspace</div>
-                        <div class="skill-card">HTML5 & CSS3</div>
-                        <div class="skill-card">Technical Reporting</div>
-                        <div class="skill-card">Leadership</div>
-                        <div class="skill-card">Team Collaboration</div>
-                        <div class="skill-card">Multi-tasking</div>
+
+                <div class="relative pl-12 md:pl-0 md:flex md:flex-row-reverse md:justify-between items-center w-full">
+                    <div class="hidden md:block w-5/12 text-left pl-12 text-slate-500 font-bold">Aug 2023 – May 2024</div>
+                    <div class="absolute left-[11px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-blue-600 rounded-full border-4 border-white z-10"></div>
+                    <div class="md:w-5/12 bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm">
+                        <span class="md:hidden block text-blue-600 font-bold mb-2 text-sm">Aug 2023 – May 2024</span>
+                        <h3 class="font-bold text-lg">Site Engineer</h3>
+                        <p class="text-blue-600 text-sm mb-3">Steps Construction (Pvt) Ltd</p>
+                        <p class="text-slate-600 text-sm">Coordinated multidisciplinary teams and developed project Gantt charts for commercial construction.</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-12 md:pl-0 md:flex md:justify-between items-center w-full">
+                    <div class="hidden md:block w-5/12 text-right pr-12 text-slate-500 font-bold">Feb 2023 – Aug 2023</div>
+                    <div class="absolute left-[11px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-slate-300 rounded-full border-4 border-white z-10"></div>
+                    <div class="md:w-5/12 bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h3 class="font-bold text-lg">Trainee Engineer</h3>
+                        <p class="text-slate-500 text-sm mb-3">Airport & Aviation Services</p>
+                        <p class="text-slate-600 text-sm">Evaluated contractor bids and conducted site measurements for infrastructure enhancements.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="leadership" class="py-20 bg-slate-50">
+    <section id="projects" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16 text-slate-900">Leadership & Volunteering</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="item-card"><p class="font-bold">Vice President Marketing & Digital Experience</p><p class="text-sm">AIESEC in SLTC | 2022-2023</p></div>
-                <div class="item-card"><p class="font-bold">Associate Coordinator</p><p class="text-sm">IEEE IAS SLTC | 2021-2022</p></div>
+            <h2 class="text-3xl font-bold text-center mb-16">Featured Projects</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group">
+                    <div class="h-48 bg-blue-600 flex items-center justify-center text-white text-5xl group-hover:scale-105 transition duration-500">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Residential Complex</h3>
+                        <p class="text-slate-500 text-sm mb-4">Project Management & Quality Control</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] px-2 py-1 bg-slate-100 rounded-full font-bold text-blue-600">Site Management</span>
+                            <span class="text-[10px] px-2 py-1 bg-slate-100 rounded-full font-bold text-blue-600">AutoCAD</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group">
+                    <div class="h-48 bg-indigo-600 flex items-center justify-center text-white text-5xl group-hover:scale-105 transition duration-500">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Airport Infrastructure</h3>
+                        <p class="text-slate-500 text-sm mb-4">Technical Evaluation & Compliance</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] px-2 py-1 bg-slate-100 rounded-full font-bold text-blue-600">Contracts</span>
+                            <span class="text-[10px] px-2 py-1 bg-slate-100 rounded-full font-bold text-blue-600">Safety</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center text-white text-5xl group-hover:scale-105 transition duration-500">
+                        <i class="fa-solid fa-hammer"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Commercial Building</h3>
+                        <p class="text-slate-500 text-sm mb-4">Scheduling & Multi-team Coordination</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] px-2 py-1 bg-slate-100 rounded-full font-bold text-blue-600">Primavera P6</span>
+                            <span class="text-[10px] px-2 py-1 bg-slate-100 rounded-full font-bold text-blue-600">Planning</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-slate-900 text-white">
+    <section id="skills" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Expertise & Skills</h2>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <h3 class="text-xl font-bold flex items-center text-blue-600"><i class="fa-solid fa-hard-hat mr-3"></i> Civil Engineering</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>AutoCAD & Revit</span><span>90%</span></div>
+                            <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="skill-progress w-[90%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>Project Planning (Primavera P6)</span><span>85%</span></div>
+                            <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="skill-progress w-[85%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>Site Management</span><span>95%</span></div>
+                            <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="skill-progress w-[95%]"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <h3 class="text-xl font-bold flex items-center text-blue-600"><i class="fa-solid fa-laptop-code mr-3"></i> Digital & Software</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>BIM Workflows</span><span>80%</span></div>
+                            <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="skill-progress w-[80%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>HTML / CSS / Digital Marketing</span><span>75%</span></div>
+                            <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="skill-progress w-[75%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>Data Analytics</span><span>70%</span></div>
+                            <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="skill-progress w-[70%]"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
             <div>
-                <h2 class="text-4xl font-bold mb-6 text-blue-400">Let's Connect</h2>
+                <h2 class="text-4xl font-bold mb-6">Let's Discuss Your Project</h2>
+                <p class="text-slate-400 mb-10 text-lg">Currently available for technical collaborations and engineering opportunities in Austria or remote projects.</p>
                 <div class="space-y-6">
-                    <p>Open for technical collaborations and part-time engineering opportunities.</p>
-                    <a href="mailto:sanishkasithmal12@gmail.com" class="flex items-center hover:text-blue-400 transition"><i class="fa-solid fa-envelope mr-4 text-xl"></i> sanishkasithmal12@gmail.com</a>
-                    <a href="tel:+4368120131926" class="flex items-center hover:text-blue-400 transition"><i class="fa-solid fa-phone mr-4 text-xl"></i> +43 681 20131926</a>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-blue-400"><i class="fa-solid fa-envelope"></i></div>
+                        <a href="mailto:sanishkasithmal12@gmail.com" class="hover:text-blue-400 transition">sanishkasithmal12@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-blue-400"><i class="fa-solid fa-phone"></i></div>
+                        <a href="tel:+4368120131926" class="hover:text-blue-400 transition">+43 681 20131926</a>
+                    </div>
                 </div>
             </div>
-            <div class="bg-white p-8 rounded-2xl text-slate-900">
+            <div class="bg-white p-8 rounded-2xl shadow-2xl text-slate-900">
                 <form id="contact-form" action="https://formspree.io/f/mbdlnenv" method="POST" class="space-y-4">
-                    <input type="text" id="visitor-name" name="name" placeholder="Your Name" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500">
-                    <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500">
-                    <textarea name="message" rows="4" placeholder="Your Message" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button id="submit-btn" type="submit" class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition">Send Message</button>
+                    <input type="text" name="name" id="userName" placeholder="Your Name" required class="w-full p-4 bg-slate-50 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-600">
+                    <input type="email" name="email" placeholder="Your Email" required class="w-full p-4 bg-slate-50 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-600">
+                    <textarea name="message" rows="4" placeholder="How can I help you?" required class="w-full p-4 bg-slate-50 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                    <button id="submitBtn" type="submit" class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 bg-slate-900 text-white border-t border-slate-800">
+    <footer class="py-12 bg-slate-900 text-white border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-            <div class="text-center md:text-left">
-                <p class="text-lg font-bold">Sithmal Nonis</p>
-                <p class="text-slate-400 text-sm">MSc in Digital Civil Engineering Science</p>
-                <p class="text-slate-500 text-xs mt-1 italic">Leoben, Styria, Austria</p>
+            <p class="font-bold uppercase tracking-widest text-sm">Sithmal Nonis</p>
+            <div class="flex space-x-6 text-2xl">
+                <a href="https://linkedin.com/in/sithmal-nonis/" target="_blank" class="hover:text-blue-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://instagram.com/sanishka_sithmal/" target="_blank" class="hover:text-pink-400 transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://facebook.com/sithmal.nonis" target="_blank" class="hover:text-blue-600 transition"><i class="fa-brands fa-facebook"></i></a>
             </div>
-            <div class="flex space-x-6 text-xl">
-                <a href="https://www.facebook.com/sithmal.nonis" target="_blank" class="hover:text-blue-400 transition"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/sanishka_sithmal/" target="_blank" class="hover:text-pink-400 transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/sithmal-nonis/" target="_blank" class="hover:text-blue-400 transition"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://wa.me/4368120131926" target="_blank" class="hover:text-green-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-            <div class="text-slate-500 text-xs text-center md:text-right">
-                <p>&copy; 2026 Sithmal Nonis</p>
-                <p>Civil Engineering & Digital Intelligence</p>
-            </div>
+            <p class="text-slate-500 text-xs">&copy; 2026 Sithmal Nonis. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transition-opacity duration-300 opacity-0 invisible z-50 hover:bg-blue-700">
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center opacity-0 invisible transition-all duration-300 z-50 hover:scale-110">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
     <script>
-        // Mobile Menu Toggle Logic (Fixed)
+        // Mobile Navigation
         const mobileBtn = document.getElementById('mobileBtn');
         const mobileMenu = document.getElementById('mobileMenu');
+        function toggleMenu() { mobileMenu.classList.toggle('hidden'); }
+        mobileBtn.addEventListener('click', toggleMenu);
 
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close menu when a link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Contact Form Logic
+        // Form Handling
         const form = document.getElementById("contact-form");
         const modal = document.getElementById("success-modal");
-        const btn = document.getElementById("submit-btn");
-        const nameInput = document.getElementById("visitor-name");
-        const successTitle = document.getElementById("success-message-title");
+        const userNameInput = document.getElementById("userName");
+        const modalTitle = document.getElementById("modal-title");
 
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const senderName = nameInput.value;
-            btn.innerHTML = "Sending...";
+            const submitBtn = document.getElementById("submitBtn");
+            const name = userNameInput.value;
+            submitBtn.innerText = "Sending...";
             
-            const response = await fetch(e.target.action, { 
-                method: 'POST', 
-                body: new FormData(e.target), 
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
                 headers: { 'Accept': 'application/json' }
             });
             
-            if (response.ok) { 
-                successTitle.innerText = `Thank You, ${senderName}!`;
-                modal.style.display = "flex"; 
-                form.reset(); 
+            if (response.ok) {
+                modalTitle.innerText = `Thank you, ${name}!`;
+                modal.style.display = "flex";
+                form.reset();
             }
-            btn.innerHTML = "Send Message";
+            submitBtn.innerText = "Send Message";
         });
 
         function closeModal() { modal.style.display = "none"; }
 
-        // Back to Top Logic
-        const backToTopBtn = document.getElementById('backToTop');
-
+        // Back to Top Button visibility
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.remove('opacity-0', 'invisible');
-                backToTopBtn.classList.add('opacity-100', 'visible');
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                btn.classList.remove('opacity-0', 'invisible');
+                btn.classList.add('opacity-100', 'visible');
             } else {
-                backToTopBtn.classList.add('opacity-0', 'invisible');
-                backToTopBtn.classList.remove('opacity-100', 'visible');
+                btn.classList.add('opacity-0', 'invisible');
+                btn.classList.remove('opacity-100', 'visible');
             }
         });
 
-        backToTopBtn.addEventListener('click', () => {
+        document.getElementById('backToTop').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
 </html>
-
