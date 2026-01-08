@@ -235,7 +235,33 @@
         });
         function closeModal() { modal.style.display = "none"; }
     </script>
+
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transition-opacity duration-300 opacity-0 invisible z-50 hover:bg-blue-700">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.remove('opacity-0', 'invisible');
+            backToTopBtn.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopBtn.classList.add('opacity-0', 'invisible');
+            backToTopBtn.classList.remove('opacity-100', 'visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+
+    
 </body>
 </html>
+
 
 
