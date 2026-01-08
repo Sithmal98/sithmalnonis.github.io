@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sithmal Nonis | Civil Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="images/profile.jpg" class="profile">
+  <h1>Sithmal Nonis</h1>
+  <h2>Civil Engineer | MSc Digital Civil Engineering</h2>
+  <p>Leoben, Austria</p>
+  <div class="buttons">
+    <a href="Sithmal_Nonis_CV.pdf" target="_blank">Download CV</a>
+    <a href="https://www.linkedin.com/in/sithmal-nonis/" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="content">
+  <h3>About Me</h3>
+  <p>
+    Detail-oriented Civil Engineer with 3+ years of experience in construction supervision,
+    BIM-based workflows, and technical documentation. Currently pursuing MSc in Digital Civil
+    Engineering Science at Montanuniversität Leoben.
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section class="content">
+  <h3>Projects</h3>
+
+  <div class="project">
+    <img src="images/project1.jpg">
+    <div>
+      <h4>Hospital & Commercial Building Projects</h4>
+      <p>Site engineering, supervision, quality control, and progress reporting.</p>
+    </div>
+  </div>
+
+  <div class="project">
+    <img src="images/project2.jpg">
+    <div>
+      <h4>Residential & Structural Projects</h4>
+      <p>AutoCAD drafting, Revit modeling, site coordination, and documentation.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+<section class="content">
+  <h3>Skills</h3>
+  <div class="skills">
+    <span>AutoCAD</span>
+    <span>Revit</span>
+    <span>SAP2000</span>
+    <span>Primavera P6</span>
+    <span>MATLAB</span>
+    <span>BIM</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="content">
+  <h3>Contact</h3>
+  <p>📧 sanishkasithmal12@gmail.com</p>
+  <p>📞 +43 681 201 31926</p>
+</section>
+
+<footer>
+  © 2026 Sithmal Nonis
+</footer>
+
+</body>
+</html>
