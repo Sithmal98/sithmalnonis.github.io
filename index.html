@@ -1,387 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sithmal Nonis - Civil Engineer & Digital Construction Specialist">
-    <title>Sithmal Nonis - Civil Engineer & Digital Construction Specialist</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            overflow-x: hidden;
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-        }
-
-        .gradient-nav {
-            background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
-        }
-
-        .nav-link {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
-            color: #fef08a;
-        }
-
-        .nav-link.active {
-            color: #fde047;
-            font-weight: 600;
-            border-bottom: 2px solid #fde047;
-            padding-bottom: 4px;
-        }
-
-        .card {
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .btn-primary {
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .skill-tag {
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .skill-tag:hover {
-            background-color: #bfdbfe;
-            transform: scale(1.05);
-        }
-
-        .section {
-            display: none;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .profile-image {
-            width: 280px;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 6px solid white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-
-        .mobile-menu {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .profile-image {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .desktop-nav {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-        }
-
-        .hamburger {
-            cursor: pointer;
-            width: 24px;
-            height: 20px;
-            position: relative;
-        }
-
-        .hamburger span {
-            display: block;
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background: white;
-            border-radius: 9px;
-            transition: .25s ease-in-out;
-        }
-
-        .hamburger span:nth-child(1) {
-            top: 0px;
-        }
-
-        .hamburger span:nth-child(2) {
-            top: 8px;
-        }
-
-        .hamburger span:nth-child(3) {
-            top: 16px;
-        }
-
-        .mobile-nav {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .mobile-nav.open {
-            max-height: 300px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sithmal Nonis - Civil Engineer & Digital Construction Specialist">
+<title>Sithmal Nonis - Civil Engineer & Digital Construction Specialist</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    html { scroll-behavior: smooth; }
+    .section { padding-top: 80px; } /* For fixed nav offset */
+</style>
 </head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="gradient-nav text-white shadow-lg fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="text-xl md:text-2xl font-bold">Sithmal Nonis</div>
-                
-                <!-- Desktop Navigation -->
-                <div class="desktop-nav flex space-x-8">
-                    <button onclick="showSection('home')" class="nav-link text-base active" data-section="home">Home</button>
-                    <button onclick="showSection('about')" class="nav-link text-base" data-section="about">About</button>
-                    <button onclick="showSection('portfolio')" class="nav-link text-base" data-section="portfolio">Portfolio</button>
-                    <button onclick="showSection('contact')" class="nav-link text-base" data-section="contact">Contact</button>
-                </div>
+<body class="bg-gray-50 font-sans">
 
-                <!-- Mobile Menu Button -->
-                <div class="mobile-menu">
-                    <div class="hamburger" onclick="toggleMobileMenu()">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
+<!-- Navbar -->
+<nav class="fixed w-full z-50 bg-blue-900 text-white shadow">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+    <div class="text-2xl font-bold">Sithmal Nonis</div>
+    <div class="hidden md:flex space-x-6">
+      <a href="#home" class="hover:text-yellow-300 font-medium">Home</a>
+      <a href="#about" class="hover:text-yellow-300 font-medium">About</a>
+      <a href="#portfolio" class="hover:text-yellow-300 font-medium">Portfolio</a>
+      <a href="#contact" class="hover:text-yellow-300 font-medium">Contact</a>
+    </div>
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button id="mobileBtn">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden bg-blue-800 md:hidden">
+    <a href="#home" class="block px-4 py-2 border-b border-blue-700">Home</a>
+    <a href="#about" class="block px-4 py-2 border-b border-blue-700">About</a>
+    <a href="#portfolio" class="block px-4 py-2 border-b border-blue-700">Portfolio</a>
+    <a href="#contact" class="block px-4 py-2 border-b border-blue-700">Contact</a>
+  </div>
+</nav>
 
-            <!-- Mobile Navigation -->
-            <div class="mobile-nav" id="mobileNav">
-                <div class="flex flex-col space-y-4 pb-4">
-                    <button onclick="showSection('home'); toggleMobileMenu()" class="nav-link text-left">Home</button>
-                    <button onclick="showSection('about'); toggleMobileMenu()" class="nav-link text-left">About</button>
-                    <button onclick="showSection('portfolio'); toggleMobileMenu()" class="nav-link text-left">Portfolio</button>
-                    <button onclick="showSection('contact'); toggleMobileMenu()" class="nav-link text-left">Contact</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+<!-- Home Section -->
+<section id="home" class="section bg-gradient-to-r from-blue-100 to-blue-200 min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20">
+  <div class="md:w-1/2 space-y-6 text-center md:text-left">
+    <h1 class="text-4xl md:text-5xl font-bold">Hello, I'm <span class="text-blue-700">Sithmal Nonis</span></h1>
+    <h2 class="text-xl md:text-2xl text-gray-700">Civil Engineer & Digital Construction Specialist</h2>
+    <p class="text-gray-700">MSc student in Digital Civil Engineering Science with 3+ years of experience in construction management, BIM tools, and project coordination. Passionate about integrating technology with traditional civil engineering.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+      <a href="https://wa.me/4368120131926" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 text-center">WhatsApp</a>
+      <a href="tel:+4368120131926" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 text-center">Call</a>
+      <a href="mailto:sanishkasithmal12@gmail.com" class="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-800 text-center">Email</a>
+      <a href="Sithmal_Nonis_CV.pdf" download class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 text-center">Download CV</a>
+    </div>
+  </div>
+  <div class="md:w-1/2 flex justify-center mt-8 md:mt-0">
+    <img src="https://raw.githubusercontent.com/Sithmal98/sithmalnonis.com/main/your-photo.jpg" alt="Sithmal Nonis" class="rounded-full w-64 h-64 object-cover shadow-xl border-4 border-white">
+  </div>
+</section>
 
-    <!-- Home Section -->
-    <section id="home" class="section active gradient-bg min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 py-20 pt-32">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <h1 class="text-3xl md:text-5xl font-bold text-gray-800">
-                        Hello, I'm <span class="text-blue-600">Sithmal Nonis</span>
-                    </h1>
-                    <h2 class="text-xl md:text-2xl text-gray-600">Civil Engineer & Digital Construction Specialist</h2>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        MSc student in Digital Civil Engineering Science with 3+ years of hands-on experience 
-                        in construction management, BIM tools, and project coordination. Passionate about 
-                        integrating technology with traditional civil engineering practices.
-                    </p>
-                    
-                    <!-- Action Buttons -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <a href="https://wa.me/4368120131926"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-primary flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all shadow-lg">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                            <span>WhatsApp</span>
-                        </a>
+<!-- About Section -->
+<section id="about" class="section max-w-7xl mx-auto px-6 md:px-0 py-20">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">About Me</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- Education -->
+    <div class="bg-white p-6 rounded-xl shadow space-y-4">
+      <h3 class="text-2xl font-bold text-blue-700">Education</h3>
+      <div>
+        <p class="font-semibold">MSc in Digital Civil Engineering Science</p>
+        <p>Montanuniversität Leoben, Austria | 2025-Present</p>
+      </div>
+      <div>
+        <p class="font-semibold">BSc (Hons) in Civil Engineering</p>
+        <p>Sri Lanka Technological Campus | Graduated Jan 2024</p>
+      </div>
+      <div>
+        <p class="font-semibold">Diploma in IT</p>
+        <p>ESOFT Metro Campus, Negombo | 2021</p>
+      </div>
+    </div>
+    <!-- Experience -->
+    <div class="bg-white p-6 rounded-xl shadow space-y-4">
+      <h3 class="text-2xl font-bold text-blue-700">Experience</h3>
+      <div>
+        <p class="font-semibold">Site Engineer</p>
+        <p>Nethu Builders | Jun 2024 - Oct 2025</p>
+      </div>
+      <div>
+        <p class="font-semibold">Site Engineer</p>
+        <p>Steps Construction (Pvt) Ltd | Aug 2023 - May 2024</p>
+      </div>
+      <div>
+        <p class="font-semibold">Trainee Civil Engineer</p>
+        <p>Airport & Aviation Services | Feb 2023 - Aug 2023</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        <a href="tel:+4368120131926"
-                            class="btn-primary flex items-center justify-center space-x-2 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all shadow-lg">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            <span>Call</span>
-                        </a>
+<!-- Portfolio Section -->
+<section id="portfolio" class="section bg-gradient-to-r from-blue-100 to-blue-200 py-20">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Portfolio</h2>
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 md:px-0">
+    <!-- Example Projects -->
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <img src="https://via.placeholder.com/400x250" alt="Project 1" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-lg">Project 1</h3>
+        <p class="text-gray-600 text-sm mt-2">Description of project 1.</p>
+      </div>
+    </div>
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <img src="https://via.placeholder.com/400x250" alt="Project 2" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-lg">Project 2</h3>
+        <p class="text-gray-600 text-sm mt-2">Description of project 2.</p>
+      </div>
+    </div>
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <img src="https://via.placeholder.com/400x250" alt="Project 3" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-lg">Project 3</h3>
+        <p class="text-gray-600 text-sm mt-2">Description of project 3.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        <a href="mailto:sanishkasithmal12@gmail.com"
-                            class="btn-primary flex items-center justify-center space-x-2 bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all shadow-lg">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            <span>Email</span>
-                        </a>
+<!-- Contact Section -->
+<section id="contact" class="section max-w-7xl mx-auto px-6 md:px-0 py-20">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Contact Me</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="space-y-4">
+      <p>Email: <a href="mailto:sanishkasithmal12@gmail.com" class="text-blue-700 underline">sanishkasithmal12@gmail.com</a></p>
+      <p>Phone: <a href="tel:+4368120131926" class="text-blue-700 underline">+43 681 201 31926</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/sithmal-nonis/" target="_blank" class="text-blue-700 underline">linkedin.com/in/sithmal-nonis</a></p>
+      <p>Facebook: <a href="https://www.facebook.com/sithmal.nonis/" target="_blank" class="text-blue-700 underline">facebook.com/sithmal.nonis</a></p>
+    </div>
+    <form class="bg-white p-6 rounded-xl shadow space-y-4">
+      <input type="text" placeholder="Name" class="w-full border border-gray-300 rounded px-4 py-2">
+      <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded px-4 py-2">
+      <textarea placeholder="Message" class="w-full border border-gray-300 rounded px-4 py-2"></textarea>
+      <button class="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800">Send Message</button>
+    </form>
+  </div>
+</section>
 
-                        <button onclick="downloadCV()"
-                            class="btn-primary flex items-center justify-center space-x-2 bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-all shadow-lg">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            <span>Download CV</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="flex justify-center">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-blue-400 rounded-full blur-3xl opacity-30"></div>
-                        <img src="https://raw.githubusercontent.com/Sithmal98/sithmalnonis.com/main/your-photo.jpg"
-                            alt="Sithmal Nonis" 
-                            class="profile-image relative"
-                            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22280%22 height=%22280%22%3E%3Ccircle cx=%22140%22 cy=%22140%22 r=%22140%22 fill=%22%232563eb%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2280%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22%3ESN%3C/text%3E%3C/svg%3E'">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Social Media Section -->
-            <div class="mt-12 bg-white rounded-xl shadow-lg p-8">
-                <h3 class="font-semibold text-xl text-gray-800 mb-6 text-center">Connect on Social Media</h3>
-                <div class="flex justify-center gap-6 flex-wrap">
-                    <a href="https://www.linkedin.com/in/sithmal-nonis/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        class="social-icon bg-blue-700 p-4 rounded-full hover:bg-blue-800 transition-all shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/sithmal.nonis/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        class="social-icon bg-blue-600 p-4 rounded-full hover:bg-blue-700 transition-all shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/sanishka_sithmal/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        class="social-icon bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section bg-gray-50 min-h-screen py-20 pt-32">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">About Me</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
-                <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                    <svg class="w-10 h-10 text-blue-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Education</h3>
-                    <div class="space-y-4">
-                        <div class="border-l-4 border-blue-600 pl-4">
-                            <h4 class="font-semibold text-lg">MSc in Digital Civil Engineering Science</h4>
-                            <p class="text-gray-600">Montanuniversität Leoben, Austria</p>
-                            <p class="text-sm text-gray-500">2025 - Present</p>
-                        </div>
-                        <div class="border-l-4 border-blue-400 pl-4">
-                            <h4 class="font-semibold text-lg">BSc (Hons) in Civil Engineering</h4>
-                            <p class="text-gray-600">Sri Lanka Technological Campus</p>
-                            <p class="text-sm text-gray-500">Graduated Jan 2024</p>
-                        </div>
-                        <div class="border-l-4 border-blue-300 pl-4">
-                            <h4 class="font-semibold text-lg">Diploma in Information Technology</h4>
-                            <p class="text-gray-600">ESOFT Metro Campus, Negombo</p>
-                            <p class="text-sm text-gray-500">2021</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                    <svg class="w-10 h-10 text-blue-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Experience</h3>
-                    <div class="space-y-4">
-                        <div class="border-l-4 border-green-600 pl-4">
-                            <h4 class="font-semibold text-lg">Site Engineer</h4>
-                            <p class="text-gray-600">Nethu Builders, Sri Lanka</p>
-                            <p class="text-sm text-gray-500">Jun 2024 - Oct 2025</p>
-                        </div>
-                        <div class="border-l-4 border-green-500 pl-4">
-                            <h4 class="font-semibold text-lg">Site Engineer</h4>
-                            <p class="text-gray-600">Steps Construction (Pvt) Ltd</p>
-                            <p class="text-sm text-gray-500">Aug 2023 - May 2024</p>
-                        </div>
-                        <div class="border-l-4 border-green-400 pl-4">
-                            <h4 class="font-semibold text-lg">Trainee Civil Engineer</h4>
-                            <p class="text-gray-600">Airport & Aviation Services</p>
-                            <p class="text-sm text-gray-500">Feb 2023 - Aug 2023</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-12">
-                <svg class="w-10 h-10 text-blue-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                <h3 class="text-2xl font-bold mb-6 text-gray-800">Technical Skills</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Primavera P6</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">AutoCAD</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Revit</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">SAP2000</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">MATLAB</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">BIM Tools</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Project Management</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Technical Documentation</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Site Supervision</span>
-                    <span class="skill-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Quality Control</span>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-                <svg class="w-10 h-10 text-blue-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                <h3 class="text-2xl font-bold mb-6 text-gray-800">Achievements & Certifications</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="font-semibold text-lg mb-3">Certifications</h4>
-                        <ul class="space-y-2 text-gray-700">
-                            <li>✓ Project Planning with Primavera P6 (2025)</li>
-                            <li>✓ Contracts Management in Construction</li>
-                            <li>✓ AutoCAD Workshop Series</li>
-                            <li>✓ Digital Marketing Fundamentals - Google</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-lg mb-3">Awards</h4>
-                        <ul class="space-y-2 text-gray-700">
-                            <li>🏆 University Colors (Chess) - SLTC 2024</li>
-                            <li>🏆 Winner - Article Writing, Ecolympiad 2022</li>
-                            <li>🏆 7th Place - Codemania V2.0, IEEE 2022</li>
-                            <li>🏆 Multiple Chess Championships (2007-2015)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section gradient-bg min-h-screen py-20 pt-32">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center
+<script>
+  // Mobile Menu Toggle
+  const mobileBtn = document.getElementById('mobileBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+</body>
+</html>
