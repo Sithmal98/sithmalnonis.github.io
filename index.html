@@ -17,35 +17,35 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
-    <footer class="py-12 bg-slate-900 text-white border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-        <div class="text-center md:text-left">
-            <p class="text-lg font-bold">Sithmal Nonis</p>
-            <p class="text-slate-400 text-sm">MSc in Digital Civil Engineering Science</p>
-            <p class="text-slate-500 text-xs mt-1 italic">Leoben, Styria, Austria</p>
-        </div>
-
-        <div class="flex space-x-6 text-xl">
-            <a href="https://www.linkedin.com/in/sithmal-nonis/" target="_blank" class="hover:text-blue-400 transition">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://www.instagram.com/sanishka_sithmal/" target="_blank" class="hover:text-pink-400 transition">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/sithmal.nonis/" target="_blank" class="hover:text-blue-500 transition">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="https://wa.me/4368120131926" target="_blank" class="hover:text-green-400 transition">
-                <i class="fa-brands fa-whatsapp"></i>
+    <nav class="fixed w-full z-50 glass border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#home" class="text-xl font-bold tracking-tighter text-blue-900 uppercase">
+            Sithmal <span class="text-blue-600">Nonis</span>
+        </a>
+        
+        <div class="hidden md:flex space-x-8 items-center">
+            <a href="#home" class="text-sm font-semibold hover:text-blue-600 transition">Home</a>
+            <a href="#about" class="text-sm font-semibold hover:text-blue-600 transition">About</a>
+            <a href="#experience" class="text-sm font-semibold hover:text-blue-600 transition">Experience</a>
+            <a href="#skills" class="text-sm font-semibold hover:text-blue-600 transition">Skills</a>
+            <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition">
+                Hire Me
             </a>
         </div>
 
-        <div class="text-slate-500 text-xs text-center md:text-right">
-            <p>&copy; 2026 Built with Precision</p>
-            <p>Civil Engineering & Digital Intelligence</p>
-        </div>
+        <button id="mobileBtn" class="md:hidden text-slate-800">
+            <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
     </div>
-</footer>
+    
+    <div id="mobileMenu" class="hidden bg-white border-b md:hidden flex flex-col p-6 space-y-4 shadow-xl">
+        <a href="#home" class="font-medium text-slate-700">Home</a>
+        <a href="#about" class="font-medium text-slate-700">About</a>
+        <a href="#experience" class="font-medium text-slate-700">Experience</a>
+        <a href="#skills" class="font-medium text-slate-700">Skills</a>
+        <a href="#contact" class="font-medium text-blue-600">Contact Me</a>
+    </div>
+</nav>
 
     <div id="success-modal" class="modal-overlay">
         <div class="modal-content shadow-2xl">
@@ -250,4 +250,5 @@
 </footer>
 </body>
 </html>
+
 
