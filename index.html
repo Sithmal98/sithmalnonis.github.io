@@ -4,35 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sithmal Nonis - Civil Engineer & Digital Construction Specialist (MSc DiCES Student)">
-    <title>Sithmal Nonis | Civil Engineer</title>
+    <title>Sithmal Nonis | Civil Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); }
-        .card-hover { transition: transform 0.3s ease, shadow 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
+        /* Skill tags styling */
+        .skill-badge { 
+            background: #ffffff; 
+            padding: 10px 18px; 
+            border-radius: 12px; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            color: #1e40af; 
+            border: 1px solid #e2e8f0; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .skill-badge:hover { 
+            background: #1e40af; 
+            color: white; 
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
     <nav class="fixed w-full z-50 glass border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-xl font-bold tracking-tighter text-blue-900">SITHMAL <span class="text-blue-600 font-light">NONIS</span></a>
+            <a href="#home" class="text-xl font-bold tracking-tighter text-blue-900 uppercase italic">Sithmal <span class="text-blue-600 not-italic">Nonis</span></a>
             
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#experience" class="text-sm font-semibold hover:text-blue-600 transition">Experience</a>
-                <a href="#skills" class="text-sm font-semibold hover:text-blue-600 transition">Technical Skills</a>
+                <a href="#skills" class="text-sm font-semibold hover:text-blue-600 transition">Skills</a>
                 <a href="#leadership" class="text-sm font-semibold hover:text-blue-600 transition">Leadership</a>
-                <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700 transition">Contact Me</a>
+                <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Hire Me</a>
             </div>
 
-            <button id="mobileBtn" class="md:hidden text-slate-800">
-                <i class="fa-solid fa-bars-staggered text-2xl"></i>
-            </button>
+            <button id="mobileBtn" class="md:hidden text-slate-800"><i class="fa-solid fa-bars text-2xl"></i></button>
         </div>
-        <div id="mobileMenu" class="hidden bg-white border-b border-slate-200 md:hidden flex flex-col p-6 space-y-4 shadow-xl">
+        <div id="mobileMenu" class="hidden bg-white border-b md:hidden flex flex-col p-6 space-y-4">
             <a href="#experience" class="font-medium">Experience</a>
             <a href="#skills" class="font-medium">Skills</a>
             <a href="#leadership" class="font-medium">Leadership</a>
@@ -42,126 +59,125 @@
 
     <section id="home" class="pt-32 pb-20 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-6">
-            <div class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-bold uppercase tracking-widest border border-blue-100">
-                <span class="relative flex h-2 w-2 mr-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                MSc Student in Leoben, Austria
+            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded text-xs font-bold uppercase tracking-widest border border-blue-200">
+                MSc Student @ Montanuniversität Leoben
             </div>
-            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-                Civil Engineer <br><span class="text-blue-600">& Digital Specialist</span>
-            </h1>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight">Civil Engineer & <span class="text-blue-600">Digital Specialist</span></h1>
             <p class="text-lg text-slate-600 leading-relaxed max-w-lg">
-                [cite_start]Bridging the gap between physical construction and digital intelligence[cite: 5, 7]. [cite_start]Currently specializing in <strong>Digital Civil Engineering Science</strong> at Montanuniversität Leoben[cite: 6, 10].
+                Bridging the gap between physical construction and digital intelligence. Currently specializing in <strong>Digital Civil Engineering Science (DiCES)</strong> in Austria.
             </p>
             <div class="flex flex-wrap gap-4 pt-4">
-                <a href="#contact" class="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">Work With Me</a>
-                <a href="mailto:sanishkasithmal12@gmail.com" class="px-8 py-4 border border-slate-300 rounded-xl font-bold hover:bg-slate-100 transition">Email Me</a>
+                <a href="Sithmal_Nonis_CV.pdf" target="_blank" class="flex items-center px-6 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition">
+                    <i class="fa-solid fa-file-pdf mr-2"></i> Download CV
+                </a>
+                <a href="https://wa.me/4368120131926" target="_blank" class="flex items-center px-6 py-3 border-2 border-green-500 text-green-600 rounded-xl font-bold hover:bg-green-50 transition">
+                    <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp
+                </a>
             </div>
         </div>
-        <div class="relative flex justify-center">
-            <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="flex justify-center">
             <img src="https://raw.githubusercontent.com/Sithmal98/sithmalnonis.com/main/your-photo.jpg" alt="Sithmal Nonis" 
-                 class="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition duration-500">
+                 class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-2xl border-4 border-white transition-transform duration-500 hover:scale-105">
         </div>
     </section>
 
-    <section id="experience" class="py-24 bg-white">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Engineering Career</h2>
-            <div class="space-y-12">
-                <div class="flex flex-col md:flex-row gap-4 md:gap-12">
-                    <div class="md:w-1/4 text-slate-400 font-bold">2024 — 2025</div>
-                    <div class="md:w-3/4 pb-12 border-b border-slate-100">
-                        [cite_start]<h3 class="text-xl font-bold text-slate-900">Site Engineer — Nethu Builders [cite: 19]</h3>
-                        <p class="text-blue-600 font-medium mb-4">Madampe, Sri Lanka</p>
-                        <ul class="space-y-2 text-slate-600">
-                            [cite_start]<li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3 text-sm"></i> Managing daily operations, labor, and subcontractors[cite: 20].</li>
-                            [cite_start]<li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3 text-sm"></i> Producing as-built drawings and analytical progress reports[cite: 23, 24].</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row gap-4 md:gap-12">
-                    <div class="md:w-1/4 text-slate-400 font-bold">2023 — 2024</div>
-                    <div class="md:w-3/4 pb-12 border-b border-slate-100">
-                        [cite_start]<h3 class="text-xl font-bold text-slate-900">Site Engineer — Steps Construction (Pvt) Ltd [cite: 25]</h3>
-                        <p class="text-blue-600 font-medium mb-4">Negombo, Sri Lanka</p>
-                        <ul class="space-y-2 text-slate-600">
-                            [cite_start]<li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-3 text-sm"></i> Developed project Gantt charts and coordinated with architects[cite: 27, 29].</li>
-                        </ul>
-                    </div>
-                </div>
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Technical Skills & Software</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                <div class="skill-badge"><i class="fa-solid fa-compass mr-2"></i> AutoCAD</div>
+                <div class="skill-badge"><i class="fa-solid fa-calendar-check mr-2"></i> Primavera P6</div>
+                <div class="skill-badge"><i class="fa-solid fa-cubes mr-2"></i> BIM (Revit)</div>
+                <div class="skill-badge"><i class="fa-solid fa-bridge mr-2"></i> SAP2000</div>
+                <div class="skill-badge"><i class="fa-solid fa-calculator mr-2"></i> MATLAB</div>
+                <div class="skill-badge"><i class="fa-solid fa-map-location-dot mr-2"></i> GIS Tech</div>
+                <div class="skill-badge"><i class="fa-solid fa-code mr-2"></i> HTML5/CSS3</div>
+                <div class="skill-badge"><i class="fa-solid fa-bullhorn mr-2"></i> Digital Marketing</div>
             </div>
         </div>
     </section>
 
-    <section id="leadership" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-16 text-center">Beyond Engineering</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="p-8 bg-white rounded-2xl border border-slate-200 card-hover">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6 text-xl">
-                    <i class="fa-solid fa-users"></i>
+    <section id="experience" class="py-20 px-6 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16">Engineering Career</h2>
+        <div class="space-y-12">
+            <div class="flex flex-col md:flex-row gap-8 pb-12 border-b border-slate-100">
+                <div class="md:w-1/4 font-bold text-blue-600">2024 — 2025</div>
+                <div class="md:w-3/4">
+                    <h3 class="text-xl font-bold text-slate-900">Site Engineer — Nethu Builders</h3>
+                    <p class="text-slate-500 font-medium mb-4">Madampe, Sri Lanka</p>
+                    <ul class="text-slate-600 space-y-2">
+                        <li>• Managing daily construction operations, labor, and subcontractors.</li>
+                        <li>• Producing as-built drawings and analytical progress reports.</li>
+                        <li>• Ensuring compliance with material standards and project specifications.</li>
+                    </ul>
                 </div>
-                <h4 class="font-bold text-lg mb-2">AIESEC Leadership</h4>
-                [cite_start]<p class="text-sm text-slate-500 mb-4">VP Marketing & Digital Experience (2022-2023) [cite: 49, 50]</p>
-                [cite_start]<p class="text-slate-600 text-sm">Led digital content strategy and managed design quality for the campus entity[cite: 51, 52].</p>
             </div>
-
-            <div class="p-8 bg-white rounded-2xl border border-slate-200 card-hover">
-                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-6 text-xl">
-                    <i class="fa-solid fa-chess-knight"></i>
+            <div class="flex flex-col md:flex-row gap-8 pb-12 border-b border-slate-100">
+                <div class="md:w-1/4 font-bold text-slate-400">2023 — 2024</div>
+                <div class="md:w-3/4">
+                    <h3 class="text-xl font-bold text-slate-900">Site Engineer — Steps Construction (Pvt) Ltd</h3>
+                    <p class="text-slate-500 font-medium mb-4">Negombo, Sri Lanka</p>
+                    <p class="text-slate-600">Developed project Gantt charts and coordinated with multi-disciplinary architects for residential and commercial projects.</p>
                 </div>
-                <h4 class="font-bold text-lg mb-2">Strategy & Coaching</h4>
-                [cite_start]<p class="text-sm text-slate-500 mb-4">Maris Stella College (2022-2024) [cite: 61]</p>
-                [cite_start]<p class="text-slate-600 text-sm">University Colors in Chess (2024) and District Champion[cite: 56, 59]. [cite_start]Coaching next-gen players[cite: 61].</p>
-            </div>
-
-            <div class="p-8 bg-white rounded-2xl border border-slate-200 card-hover">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-6 text-xl">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <h4 class="font-bold text-lg mb-2">Tech Certifications</h4>
-                [cite_start]<p class="text-sm text-slate-500 mb-4">Software & IT [cite: 12, 14]</p>
-                [cite_start]<p class="text-slate-600 text-sm">Diplomas in IT and Web Design; certified in Primavera P6 and Google Digital Marketing[cite: 12, 14, 42, 45].</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-slate-900 text-white overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 relative z-10">
+    <section id="leadership" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Beyond Engineering</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <i class="fa-solid fa-users text-3xl text-blue-600 mb-6"></i>
+                    <h4 class="font-bold text-xl mb-2">AIESEC Leadership</h4>
+                    <p class="text-slate-500 text-sm mb-4">VP Marketing & Digital Experience (2022-2023)</p>
+                    <p class="text-slate-600">Led digital content strategy and managed design quality for the campus entity. Drove high-engagement marketing campaigns.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <i class="fa-solid fa-chess text-3xl text-blue-600 mb-6"></i>
+                    <h4 class="font-bold text-xl mb-2">Chess Strategy & Coaching</h4>
+                    <p class="text-slate-500 text-sm mb-4">University Colors (2024)</p>
+                    <p class="text-slate-600">Represented University at national level. Coached students at Maris Stella College, focusing on strategic logic and patience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
             <div>
-                <h2 class="text-4xl font-bold mb-6">Let's Connect</h2>
-                [cite_start]<p class="text-slate-400 mb-8 max-w-sm">I am open to part-time engineering roles, technical collaboration, or BIM projects in Austria[cite: 8].</p>
-                
+                <h2 class="text-4xl font-bold mb-6 text-blue-400">Let's Connect</h2>
+                <p class="text-slate-400 mb-10 text-lg">I am open to part-time engineering roles, BIM projects, or technical collaboration in Leoben, Austria.</p>
                 <div class="space-y-6">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-4"><i class="fa-solid fa-phone"></i></div>
-                        [cite_start]<p>+43 681 20131926 [cite: 2]</p>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-4"><i class="fa-solid fa-location-dot"></i></div>
-                        [cite_start]<p>Leoben, Austria [cite: 3]</p>
+                    <a href="mailto:sanishkasithmal12@gmail.com" class="flex items-center hover:text-blue-400 transition">
+                        <i class="fa-solid fa-envelope mr-4 text-blue-500 text-xl"></i> sanishkasithmal12@gmail.com
+                    </a>
+                    <a href="tel:+4368120131926" class="flex items-center hover:text-blue-400 transition">
+                        <i class="fa-solid fa-phone mr-4 text-blue-500 text-xl"></i> +43 681 20131926
+                    </a>
+                    <div class="flex space-x-6 pt-6">
+                        <a href="https://www.linkedin.com/in/sithmal-nonis/" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/sithmal.nonis/" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://wa.me/4368120131926" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="bg-white p-8 rounded-2xl text-slate-900 shadow-2xl">
-                <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Your Name</label>
-                        <input type="text" name="name" required class="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Email Address</label>
-                        <input type="email" name="email" required class="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Message</label>
-                        <textarea name="message" rows="4" required class="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition transform active:scale-95">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                    <label class="block">
+                        <span class="text-sm font-bold text-slate-700">Full Name</span>
+                        <input type="text" name="name" required class="mt-1 w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </label>
+                    <label class="block">
+                        <span class="text-sm font-bold text-slate-700">Email Address</span>
+                        <input type="email" name="_replyto" required class="mt-1 w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </label>
+                    <label class="block">
+                        <span class="text-sm font-bold text-slate-700">How can I help you?</span>
+                        <textarea name="message" rows="4" required class="mt-1 w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                    </label>
+                    <button type="submit" class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition transform active:scale-95 shadow-lg">
                         Send Message
                     </button>
                 </form>
@@ -169,16 +185,19 @@
         </div>
     </section>
 
-    <footer class="py-12 text-center text-slate-400 text-sm bg-slate-900 border-t border-slate-800">
-        <p>&copy; 2026 Sithmal Nonis | Built with Precision</p>
+    <footer class="py-12 text-center text-slate-500 bg-slate-900 border-t border-slate-800">
+        <p class="font-medium">&copy; 2026 Sithmal Nonis | Civil Engineering & Digital Construction</p>
+        <p class="text-xs mt-2 uppercase tracking-widest text-slate-600">Leoben, Austria</p>
     </footer>
 
     <script>
+        // Mobile menu toggle
         const mobileBtn = document.getElementById('mobileBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         mobileBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        // Close menu on link click
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
