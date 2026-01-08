@@ -26,7 +26,7 @@
             <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
-            <h3 class="text-xl font-bold text-slate-900">Thank You!</h3>
+            <h3 id="success-message-title" class="text-xl font-bold text-slate-900">Thank You!</h3>
             <p class="text-slate-600 mt-2">Successfully sent the message. I will get back to you soon.</p>
             <button onclick="closeModal()" class="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg font-bold">Close</button>
         </div>
@@ -39,8 +39,8 @@
                 <a href="#home" class="text-sm font-semibold hover:text-blue-600 transition">Home</a>
                 <a href="#about" class="text-sm font-semibold hover:text-blue-600 transition">About</a>
                 <a href="#experience" class="text-sm font-semibold hover:text-blue-600 transition">Experience</a>
+                <a href="#certifications" class="text-sm font-semibold hover:text-blue-600 transition">Certifications</a>
                 <a href="#skills" class="text-sm font-semibold hover:text-blue-600 transition">Skills</a>
-                <a href="#achievements" class="text-sm font-semibold hover:text-blue-600 transition">Awards</a>
                 <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Contact</a>
             </div>
             <button id="mobileBtn" class="md:hidden text-slate-800"><i class="fa-solid fa-bars text-2xl"></i></button>
@@ -93,18 +93,23 @@
                 </div>
             </div>
             
-            <h3 class="text-2xl font-bold pt-12 border-t border-slate-200 text-slate-400 uppercase tracking-widest text-sm text-center">Internships</h3>
+            <h3 class="text-2xl font-bold pt-12 border-t border-slate-200 text-slate-400 uppercase tracking-widest text-sm text-center">Trainee & Internship Experiences</h3>
             <div class="border-l-4 border-slate-300 pl-6 space-y-12">
                 <div>
                     <h3 class="text-xl font-bold text-slate-800">Trainee Civil Engineer — Airport & Aviation Services</h3>
                     <p class="text-slate-500 text-sm font-semibold italic">Feb 2023 — Aug 2023 | Sri Lanka</p>
-                    <p class="text-slate-600 mt-2">Performed technical evaluations of contractor bids and verified monthly progress bills.</p>
+                    <p class="text-slate-600 mt-2">Performed technical evaluations of contractor bids, conducted site measurements, and verified monthly progress bills.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-800">Trainee Civil Engineer — Archiform Design Consultants</h3>
+                    <p class="text-slate-500 text-sm font-semibold italic">Feb 2022 — Oct 2022 | Sri Lanka</p>
+                    <p class="text-slate-600 mt-2">Oversaw construction activities, enforced safety protocols, and coordinated between technical teams to ensure timeline compliance.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-slate-100">
+    <section id="certifications" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16">Professional Certifications</h2>
             <div class="grid md:grid-cols-3 gap-6">
@@ -120,54 +125,45 @@
 
     <section id="skills" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Technical Stack</h2>
+            <h2 class="text-3xl font-bold text-center mb-16 text-slate-900">Expertise & Technical Stack</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <h4 class="font-bold text-blue-700 mb-4 flex items-center"><i class="fa-solid fa-compass-drafting mr-2"></i> Engineering</h4>
+                    <h4 class="font-bold text-blue-700 mb-4 flex items-center"><i class="fa-solid fa-compass-drafting mr-2"></i> Engineering Tools</h4>
                     <div class="grid grid-cols-1 gap-3">
-                        <div class="skill-card">AutoCAD & Revit</div>
+                        <div class="skill-card">AutoCAD & Revit (BIM)</div>
                         <div class="skill-card">Primavera P6</div>
                         <div class="skill-card">SAP2000 & MATLAB</div>
+                        <div class="skill-card">SuperMap GIS</div>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-bold text-slate-700 mb-4 flex items-center"><i class="fa-solid fa-list-check mr-2"></i> Management</h4>
+                    <h4 class="font-bold text-slate-700 mb-4 flex items-center"><i class="fa-solid fa-list-check mr-2"></i> Project Management</h4>
                     <div class="grid grid-cols-1 gap-3">
-                        <div class="skill-card">Project Scheduling</div>
+                        <div class="skill-card">Project Scheduling (Gantt)</div>
                         <div class="skill-card">Technical Reporting</div>
-                        <div class="skill-card">Site Supervision</div>
+                        <div class="skill-card">Site Supervision & Safety</div>
+                        <div class="skill-card">Contract Bid Evaluation</div>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-bold text-green-700 mb-4 flex items-center"><i class="fa-solid fa-laptop mr-2"></i> IT</h4>
+                    <h4 class="font-bold text-green-700 mb-4 flex items-center"><i class="fa-solid fa-laptop mr-2"></i> Productivity & IT</h4>
                     <div class="grid grid-cols-1 gap-3">
-                        <div class="skill-card">Microsoft Office</div>
-                        <div class="skill-card">HTML5 & CSS3</div>
+                        <div class="skill-card">Microsoft Office 365 (Expert)</div>
                         <div class="skill-card">Google Workspace</div>
+                        <div class="skill-card">HTML5 & CSS3</div>
+                        <div class="skill-card">Digital Specialist Workflows</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="achievements" class="py-20 bg-slate-50">
+    <section id="leadership" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-2xl font-bold mb-8 flex items-center"><i class="fa-solid fa-trophy text-yellow-500 mr-3"></i> Awards & Chess</h2>
-                    <div class="space-y-4">
-                        <div class="item-card"><p class="font-bold">University Colors (Chess)</p><p class="text-sm">SLTC | 2024</p></div>
-                        <div class="item-card"><p class="font-bold">Chess Coach</p><p class="text-sm">Maris Stella College | 2022-2024</p></div>
-                        <div class="item-card"><p class="font-bold">District/Provincial Championships</p><p class="text-sm">2007-2015</p></div>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-bold mb-8 flex items-center"><i class="fa-solid fa-handshake-angle text-blue-600 mr-3"></i> Leadership</h2>
-                    <div class="space-y-4">
-                        <div class="item-card"><p class="font-bold">VP Marketing & Digital Experience</p><p class="text-sm">AIESEC in SLTC | 2022-2023</p></div>
-                        <div class="item-card"><p class="font-bold">Associate Coordinator</p><p class="text-sm">IEEE IAS SLTC | 2021-2022</p></div>
-                    </div>
-                </div>
+            <h2 class="text-3xl font-bold text-center mb-16 text-slate-900">Leadership & Volunteering</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="item-card"><p class="font-bold">VP Marketing & Digital Experience</p><p class="text-sm">AIESEC in SLTC | 2022-2023</p></div>
+                <div class="item-card"><p class="font-bold">Associate Coordinator</p><p class="text-sm">IEEE IAS SLTC | 2021-2022</p></div>
             </div>
         </div>
     </section>
@@ -184,9 +180,9 @@
             </div>
             <div class="bg-white p-8 rounded-2xl text-slate-900">
                 <form id="contact-form" action="https://formspree.io/f/mbdlnenv" method="POST" class="space-y-4">
-                    <input type="text" name="name" placeholder="Name" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500">
-                    <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500">
-                    <textarea name="message" rows="4" placeholder="Message" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <input type="text" id="visitor-name" name="name" placeholder="Your Name" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500">
+                    <textarea name="message" rows="4" placeholder="Your Message" required class="w-full p-3 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                     <button id="submit-btn" type="submit" class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition">Send Message</button>
                 </form>
             </div>
@@ -214,27 +210,26 @@
     </footer>
 
     <script>
-        // Mobile Menu
-        const mobileBtn = document.getElementById('mobileBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileBtn?.addEventListener('click', () => {
-             // Basic toggle for mobile menu if defined
-        });
-
-        // Contact Form
+        // Contact Form with dynamic Name integration
         const form = document.getElementById("contact-form");
         const modal = document.getElementById("success-modal");
         const btn = document.getElementById("submit-btn");
+        const nameInput = document.getElementById("visitor-name");
+        const successTitle = document.getElementById("success-message-title");
 
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
+            const senderName = nameInput.value;
             btn.innerHTML = "Sending...";
+            
             const response = await fetch(e.target.action, { 
                 method: 'POST', 
                 body: new FormData(e.target), 
                 headers: { 'Accept': 'application/json' }
             });
+            
             if (response.ok) { 
+                successTitle.innerText = `Thank You, ${senderName}!`;
                 modal.style.display = "flex"; 
                 form.reset(); 
             }
