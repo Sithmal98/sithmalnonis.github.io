@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="flex justify-center">
-            <img src="https://raw.githubusercontent.com/Sithmal98/sithmalnonis.com/main/your-photo.jpg" alt="Sithmal Nonis" class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-2xl border-4 border-white">
+            <img src="IMG-20230422-WA00281" alt="Sithmal Nonis" class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-2xl border-4 border-white">
         </div>
     </section>
 
@@ -186,46 +186,59 @@
         <p>&copy; 2026 Sithmal Nonis | Leoben, Austria</p>
     </footer>
 
-    <script>
-        // Mobile Menu
-        const mobileBtn = document.getElementById('mobileBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+   <script>
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        // Form Submission Logic (AJAX)
-        const form = document.getElementById("contact-form");
-        const modal = document.getElementById("success-modal");
-        const btn = document.getElementById("submit-btn");
+    // Form Submission Logic (AJAX)
+    const form = document.getElementById("contact-form");
+    const modal = document.getElementById("success-modal");
+    const btn = document.getElementById("submit-btn");
+    const successTitle = modal.querySelector('h3'); // Selects the "Thank You" heading
 
-        async function handleSubmit(event) {
-            event.preventDefault();
-            btn.innerHTML = "Sending...";
-            btn.disabled = true;
+    async function handleSubmit(event) {
+        event.preventDefault();
+        
+        // Get the visitor's name from the input field
+        const formData = new FormData(event.target);
+        const visitorName = formData.get('name'); 
 
-            const data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    modal.style.display = "flex";
-                    form.reset();
-                    btn.innerHTML = "Send Message";
-                    btn.disabled = false;
-                } else {
-                    document.getElementById("error-msg").classList.remove("hidden");
-                }
-            }).catch(error => {
+        btn.innerHTML = "Sending...";
+        btn.disabled = true;
+
+        fetch(event.target.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                // Update the modal text to thank the visitor specifically
+                successTitle.innerHTML = visitorName ? `Thank You, ${visitorName}!` : "Thank You!";
+                
+                modal.style.display = "flex";
+                form.reset();
+                btn.innerHTML = "Send Message";
+                btn.disabled = false;
+            } else {
                 document.getElementById("error-msg").classList.remove("hidden");
-            });
-        }
+                btn.innerHTML = "Send Message";
+                btn.disabled = false;
+            }
+        }).catch(error => {
+            document.getElementById("error-msg").classList.remove("hidden");
+            btn.innerHTML = "Send Message";
+            btn.disabled = false;
+        });
+    }
 
-        form.addEventListener("submit", handleSubmit);
+    form.addEventListener("submit", handleSubmit);
 
-        function closeModal() {
-            modal.style.display = "none";
-        }
-    </script>
+    function closeModal() {
+        modal.style.display = "none";
+    }
+</script>
 </body>
 </html>
+
