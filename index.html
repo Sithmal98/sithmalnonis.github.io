@@ -35,6 +35,7 @@
     <nav class="fixed w-full z-50 glass border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold tracking-tighter text-blue-900 uppercase">Sithmal <span class="text-blue-600">Nonis</span></a>
+            
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#home" class="text-sm font-semibold hover:text-blue-600 transition">Home</a>
                 <a href="#about" class="text-sm font-semibold hover:text-blue-600 transition">About</a>
@@ -43,7 +44,17 @@
                 <a href="#skills" class="text-sm font-semibold hover:text-blue-600 transition">Skills</a>
                 <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Contact</a>
             </div>
+            
             <button id="mobileBtn" class="md:hidden text-slate-800"><i class="fa-solid fa-bars text-2xl"></i></button>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 flex flex-col p-6 space-y-4 shadow-xl">
+            <a href="#home" class="font-semibold hover:text-blue-600">Home</a>
+            <a href="#about" class="font-semibold hover:text-blue-600">About</a>
+            <a href="#experience" class="font-semibold hover:text-blue-600">Experience</a>
+            <a href="#certifications" class="font-semibold hover:text-blue-600">Certifications</a>
+            <a href="#skills" class="font-semibold hover:text-blue-600">Skills</a>
+            <a href="#contact" class="font-semibold hover:text-blue-600">Contact</a>
         </div>
     </nav>
 
@@ -123,7 +134,7 @@
         </div>
     </section>
 
-   <section id="skills" class="py-20 bg-white">
+    <section id="skills" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16 text-slate-900">Expertise & Technical Stack</h2>
             <div class="grid md:grid-cols-2 gap-8">
@@ -135,15 +146,15 @@
                         <div class="skill-card">Primavera P6</div>
                         <div class="skill-card">SAP2000</div>
                         <div class="skill-card">MATLAB</div>
-                        <div class="skill-card">Time Management</div>      
                         <div class="skill-card">Project Management</div>
                         <div class="skill-card">Microsoft Project</div>
+                        <div class="skill-card">Time Management</div>
                     </div>
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-700 mb-4 flex items-center"><i class="fa-solid fa-laptop mr-2"></i> Technical & Professional Skills</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="skill-card">Microsoft Office 365)</div>
+                        <div class="skill-card">Microsoft Office 365</div>
                         <div class="skill-card">Google Workspace</div>
                         <div class="skill-card">HTML5 & CSS3</div>
                         <div class="skill-card">Technical Reporting</div>
@@ -207,8 +218,28 @@
         </div>
     </footer>
 
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transition-opacity duration-300 opacity-0 invisible z-50 hover:bg-blue-700">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script>
-        // Contact Form with dynamic Name integration
+        // Mobile Menu Toggle Logic (Fixed)
+        const mobileBtn = document.getElementById('mobileBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form Logic
         const form = document.getElementById("contact-form");
         const modal = document.getElementById("success-modal");
         const btn = document.getElementById("submit-btn");
@@ -233,35 +264,25 @@
             }
             btn.innerHTML = "Send Message";
         });
+
         function closeModal() { modal.style.display = "none"; }
+
+        // Back to Top Logic
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
-
-    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transition-opacity duration-300 opacity-0 invisible z-50 hover:bg-blue-700">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
-
-<script>
-    const backToTopBtn = document.getElementById('backToTop');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-            backToTopBtn.classList.remove('opacity-0', 'invisible');
-            backToTopBtn.classList.add('opacity-100', 'visible');
-        } else {
-            backToTopBtn.classList.add('opacity-0', 'invisible');
-            backToTopBtn.classList.remove('opacity-100', 'visible');
-        }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
-
-
-    
 </body>
 </html>
-
-
-
