@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sithmal Nonis | Civil Engineer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Sithmal Nonis</h1>
+    <p>Civil Engineer | MSc Digital Civil Engineering</p>
+    <p>Leoben, Austria</p>
+    <a href="Sithmal_Nonis_CV.pdf" class="btn">Download CV</a>
+    <a href="https://www.linkedin.com/in/sithmal-nonis/" class="btn">LinkedIn</a>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>
+        Detail-oriented Civil Engineer with 3+ years of experience in construction supervision,
+        project planning, BIM tools, and technical documentation. Currently pursuing MSc in
+        Digital Civil Engineering Science at Montanuniversität Leoben.
+    </p>
+</section>
+
+<section>
+    <h2>Education</h2>
+    <ul>
+        <li><b>MSc Digital Civil Engineering</b> – Montanuniversität Leoben (2025–Present)</li>
+        <li><b>BSc Civil Engineering</b> – Sri Lanka Technological Campus (2024)</li>
+        <li>Diploma in IT – ESOFT</li>
+        <li>Diploma in Web Designing – ICC Campus</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Work Experience</h2>
+    <ul>
+        <li><b>Site Engineer – Nethu Builders</b> (2024–2025)</li>
+        <li><b>Site Engineer – Steps Construction</b> (2023–2024)</li>
+        <li><b>Trainee Civil Engineer – Airport & Aviation Services</b></li>
+        <li><b>Trainee Draftsman – Archiform Design Consultants</b></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <p>AutoCAD, Revit, SAP2000, Primavera P6, MATLAB, BIM, Technical Reporting</p>
+</section>
+
+<section>
+    <h2>Certifications</h2>
+    <ul>
+        <li>Project Planning with Primavera P6</li>
+        <li>Contracts Management in Construction</li>
+        <li>AutoCAD Workshop</li>
+        <li>Digital Marketing Fundamentals – Google</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <p>📞 +43 681 201 31926</p>
+    <p>📧 sanishkasithmal12@gmail.com</p>
+</section>
+
+<footer>
+    © 2026 Sithmal Nonis
+</footer>
+
+</body>
+</html>
